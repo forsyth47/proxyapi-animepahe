@@ -17,9 +17,14 @@ app.get("/animepahe.mp4", (req, res) => {
     "Content-Type": "video/mp4",
   };
 
-  // Redirect to the provided URL with the specified headers
-  res.set(headers);
-  res.redirect(302, link);
+    const customResponse = {
+    ...headers,
+    "Location": link,
+  };
+
+  // Send the custom response
+  res.set(customResponse);
+  res.status(302).send();
 });
 
 // Listen on port 3000 (adjust as needed)
