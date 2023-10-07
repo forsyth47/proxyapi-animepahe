@@ -6,7 +6,8 @@ app.get("/", (req, res) => {
 });
 
 app.get("/animepahe.mp4", (req, res) => {
-  const link = req.query.url;
+  const fullUrl = req.originalUrl;
+  const link = fullUrl.split('/animepahe.mp4?url=')[1];
   if (!link) {
     return res.status(400).send("Missing 'url' query parameter.");
   }
