@@ -3,6 +3,7 @@
     {"src": "*.js", "use": "@vercel/node"}
   ],
   "routes": [
-    {"src": "/", "dest": "app.js"}
+    {"src": "/", "dest": "app.js"},
+    {"src": "/animepahe.mp4", "dest": "app.js"}
   ]
 }
