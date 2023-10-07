@@ -12,6 +12,8 @@ app.get("/animepahe.mp4", (req, res) => {
     return res.status(400).send("Missing 'url' query parameter.");
   }
 
+  const decodedLink = decodeURIComponent(link);
+
   // You can add any additional headers you need here
   const headers = {
     "Content-Type": "video/mp4",
@@ -19,7 +21,7 @@ app.get("/animepahe.mp4", (req, res) => {
 
     const customResponse = {
     ...headers,
-    "Location": link,
+    "Location": decodedLink,
   };
 
   // Send the custom response
